@@ -4,4 +4,4 @@ services:
   - docker
 
 script:
-  - docker run -v .:/mnt --rm -t fedora:rawhide /mnt/build
+  - docker run -v $(pwd):/mnt --rm -t fedora:rawhide /mnt/build

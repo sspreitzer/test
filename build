@@ -1,4 +1,14 @@
 #!/bin/bash
 
-dnf install -y rpm-build copr-cli make &&
-rpmbuild -bs /mnt/numix.spec
+mkdir -p ~/.config
+cat > ~/.config/copr <<EOF
+[copr-cli]
+username = ${COPR_USERNAME}
+login = ${COPR_LOGIN}
+token = ${COPR_TOKEN}
+EOF
+
+dnf install -y rpm-build copr-cli &&
+rpmbuild -D"%_srcrpmdir /mnt" -bs /mnt/numix.spec &&
+copr build sspreitz/numix-git blah
+
