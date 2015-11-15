@@ -1,14 +1,15 @@
 #!/bin/bash
 
-mkdir -p ~/.config
-cat > ~/.config/copr <<EOF
-[copr-cli]
-username = ${COPR_USERNAME}
-login = ${COPR_LOGIN}
-token = ${COPR_TOKEN}
-EOF
+#mkdir -p ~/.config
+#cat > ~/.config/copr <<EOF
+#[copr-cli]
+#username = ${COPR_USERNAME}
+#login = ${COPR_LOGIN}
+#token = ${COPR_TOKEN}
+#EOF
+#
+#dnf install -y rpm-build copr-cli &&
+#rpmbuild -D"%_srcrpmdir /mnt" -bs /mnt/numix.spec &&
+#copr build sspreitz/numix-git blah
 
-dnf install -y rpm-build copr-cli &&
-rpmbuild -D"%_srcrpmdir /mnt" -bs /mnt/numix.spec &&
-copr build sspreitz/numix-git blah
-
+echo test > /mnt/numix-$(date +%s).src.rpm
