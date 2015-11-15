@@ -1,0 +1,4 @@
+#!/bin/bash
+
+dnf install -y rpm-build copr-cli make &&
+rpmbuild -bs /mnt/numix.spec

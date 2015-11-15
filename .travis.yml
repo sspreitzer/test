@@ -4,4 +4,4 @@ services:
   - docker
 
 script:
-  - docker run --rm -i -t fedora:rawhide "dnf install -y vim"
+  - docker run -v .:/mnt --rm -t fedora:rawhide /mnt/build
