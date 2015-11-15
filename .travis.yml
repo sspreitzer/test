@@ -4,4 +4,4 @@ services:
   - docker
 
 script:
-  - docker run -v $(pwd):/mnt --rm -t fedora:rawhide /mnt/build
+  - docker run -v $(pwd):/mnt --rm -t -e COPR_USERNAME=${COPR_USERNAME} -e COPR_LOGIN=${COPR_LOGIN} -e COPR_TOKEN=${COPR_TOKEN} fedora:rawhide /mnt/build
