@@ -1,17 +1,15 @@
 sudo: required
-
 services:
-  - docker
-
+- docker
 script:
-  - docker run -v $(pwd):/mnt --rm -t -e COPR_USERNAME=${COPR_USERNAME} -e COPR_LOGIN=${COPR_LOGIN} -e COPR_TOKEN=${COPR_TOKEN} fedora:rawhide /mnt/build
-
+- docker run -v $(pwd):/mnt --rm -t -e COPR_USERNAME=${COPR_USERNAME} -e COPR_LOGIN=${COPR_LOGIN}
+  -e COPR_TOKEN=${COPR_TOKEN} fedora:rawhide /mnt/build
 deploy:
   skip_cleanup: true
   file_glob: true
   provider: releases
   api_key:
-    secure: P9DMEvTxBIUZ/0beJIhdBA7M4YfV1/AN9EoIP485IMR/zich42jh2h3W6vB7V2BSvNBvOBruGJwJbGDzKMqShyyut/Az8gare7uA/+9tkRrAR6RcX7Q7FvqLJyTMIDOfjkEjtCR+Mu3nK8szb0qWKWwQe6a4r3jjYUk6n2TkBI6Q/rCS9Tm9omemT/DH44F+akwCjzlSaUwN6I+LRKv75REKfPK0wzMEiIq/b3gzXc/nWopxpIPEVMw9RpfnrPvVmYit4whnI6Po1SKwfim74C0pi9zB2ZciAN3BpvrR6TKpjF+VQRK5IojqDA8Uu0RqWk4Eqvo4U7MWfC5m+hN69Mggu/xdP/crqX3Bf1qNXRoR2UXKlIxEUkP3jCxwtDnlqktAbf+PHwSAj/Rqpq6BBta+1U3nzbr61VVuTksKjTWjvoWUuN0DBsOUn9iZED+NInzR/ceN/YRiKKUdtEoKCTRXrkKsQ1GHNhIG5CEJeGpMCI3CjkpGGrBt8TaMw7N2ZWILvZV5DRUPsnofx4QgUBwkh7sn7VistyD0afBqLiUa+FAsw88FjSWERKAs8VJVch0TI+UjVRVGkMRQmB+tWQSzxat1arq7V17p2kwjYUIYHcY3K0L0y/1MqE7fjt3wqP86Z6nA5UzqxRRMDmkibefu2RXm+fsoucNJ5/enFq8=
+    secure: FtCVgp1BtVLj1HV/1TWnX7nAOzImLB17ix5NBDSFUdZ682xIjXUGstwTgbyC8lO/TmNuGXIYm/fW2OjL4NkKPpYFa1FpSYor9JlC8gimV9giLse4cLqaMR5Lwdwvfh4ks0e+IgIpcJZno+6BBTcU74cvJE65L4RTnESXq6cMkm59+5nOH7ls9XHBYusJDQfbv/KM+ntNHD6yIPZd3FkRVz0fVO4a/x1lWjJteKZ0SBytXlNJ6YpxCmrpEe7fhNfzH1kfZqGMaenwIB4eIZUwo/Vs6gsEcMJRnYLxNDbiR194YNOpOwMw7/mgFAn18VGK6XSkkjJ+69PNhq6cYggbNFZT9AW0XmekcgwhNUq4kPlOfuhT2a7MXIapiA8FgiqjdZYOQUhkTz7ksqBEguNIuYaw8mqoIKNBw8rnXDvZyypy3jdB8rwFskSbHQ5uAEx/3Y+zO9bRH8hc3L2bkLPOgda+tPPLGA/ul7XFeBKWd7+Bnf/M6cCO+M60pdseKLqAKnwhKTpmjQg9IHMKvzNJuqdDYgX4LmIuIESzRhLIj6nyaebd3EmUTkbo0wo06JiK1fZBltXaAIM7eNi77VsHlMBcXtkxotVc4bgoMREghQvi32XFmYQEXO1USEqSKLlIGcw++vwgnOlp/zK6KU2iM8Gk+fsW00lcqoKOXm1btec=
   file: "*.rpm"
   on:
     tags: true
