@@ -4,4 +4,4 @@ services:
   - docker
 
 script:
-  - docker run --rm -i -t fedora:rawhide "yum install -y vim"
+  - docker run --rm -i -t fedora:rawhide "dnf install -y vim"
